@@ -1,4 +1,8 @@
 const gameContainer = document.getElementById("game");
+const startBtn = document.getElementById("start");
+const restartBtn = document.getElementById("restart");
+
+restartBtn.style.display = "none"
 
 
 const COLORS = [
@@ -109,4 +113,17 @@ function handleCardClick(event) {
 }
 
 // when the DOM loads
-createDivsForColors(shuffledColors);
+startBtn.addEventListener('click', function() {
+    createDivsForColors(shuffledColors);
+    startBtn.style.display = "none"
+    restartBtn.style.display = "block"
+})
+
+restartBtn.addEventListener('click', function() {
+    const allCards = document.querySelectorAll('div div'); 
+    for (let card of allCards) {
+        card.remove();
+    }
+    shuffle(COLORS)
+    createDivsForColors(shuffledColors);
+})
