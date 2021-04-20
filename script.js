@@ -112,13 +112,14 @@ function handleCardClick(event) {
   }
 }
 
-// when the DOM loads
+// Start Button
 startBtn.addEventListener('click', function() {
     createDivsForColors(shuffledColors);
     startBtn.style.display = "none"
     restartBtn.style.display = "block"
 })
 
+// Restart Button
 restartBtn.addEventListener('click', function() {
     const allCards = document.querySelectorAll('div div'); 
     for (let card of allCards) {
